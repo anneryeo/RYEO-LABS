@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { sendWelcomeEmail } from '@/lib/email'
 
 export async function POST(request: NextRequest) {
@@ -22,8 +22,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    if (!isSupabaseConfigured()) {
+      return NextResponse.json(
+        { message: 'Newsletter signup is not yet configured. Please try again later.' },
+        { status: 503 }
+      )
+    }
+
     // Check if subscriber already exists
-    const { data: existing } = await supabase
+    const { data: existing } = await supabase!
       .from('subscribers')
       .select('id')
       .eq('email', email)
@@ -37,7 +44,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert new subscriber
-    const { error: insertError } = await supabase
+    const { error: insertError } = await supabase!
       .from('subscribers')
       .insert([{ email, subscribed_at: new Date().toISOString() }])
 
