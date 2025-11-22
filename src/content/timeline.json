@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "date": "2024-01-15",
+    "type": "milestone",
+    "title": "Founded Ryeo Labs",
+    "description": "Started the journey of building an innovation laboratory focused on technology and creative design.",
+    "image": "/images/timeline/founded.jpg"
+  },
+  {
+    "id": "2",
+    "date": "2024-03-20",
+    "type": "event",
+    "title": "First Project Launch",
+    "description": "Launched the first major project combining technical skills with creative design thinking.",
+    "image": "/images/timeline/project-launch.jpg"
+  },
+  {
+    "id": "3",
+    "date": "2024-06-10",
+    "type": "award",
+    "title": "Innovation Recognition",
+    "description": "Received recognition for innovative approach to problem solving.",
+    "image": "/images/timeline/award.jpg"
+  },
+  {
+    "id": "4",
+    "date": "2024-11-22",
+    "type": "milestone",
+    "title": "Blog & Portfolio Launch",
+    "description": "Launched personal blog and portfolio showcasing projects, timeline, and thoughts on innovation.",
+    "image": "/images/timeline/blog-launch.jpg"
+  }
+]

@@ -1,26 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-alexandria), sans-serif;
+  background-color: #FFFDF3;
+  color: #2C2114;
+}
+
+/* Utility classes for common patterns */
+
+.overlay-dark {
+  @apply absolute inset-0 bg-black/30;
+}
+
+.overlay-darker {
+  @apply absolute inset-0 bg-black/50;
+}
+
+.blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+.blend-screen {
+  mix-blend-mode: screen;
+}
+
+.blend-overlay {
+  mix-blend-mode: overlay;
+}
+
+.blend-darken {
+  mix-blend-mode: darken;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFDF3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C20005;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b0003;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #C20005;
+  color: #FFFDF3;
+}
+
+/* Smooth transitions by default */
+@layer components {
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .text-heading-1 {
+    @apply text-5xl md:text-7xl font-bold leading-tight text-ryeo-dark;
+  }
+
+  .text-heading-2 {
+    @apply text-4xl md:text-5xl font-bold leading-tight text-ryeo-dark;
+  }
+
+  .text-heading-3 {
+    @apply text-3xl md:text-4xl font-bold leading-tight text-ryeo-dark;
+  }
+
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed text-ryeo-dark;
+  }
+
+  .text-caption {
+    @apply text-sm text-ryeo-dark/60;
+  }
 }
